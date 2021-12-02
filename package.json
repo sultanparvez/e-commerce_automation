@@ -1,0 +1,35 @@
+{
+  "name": "tutorial1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "test:regression": "./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@regression'",
+    "test:dev":"./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@dev'",
+    "test:int":"./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@int'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@wdio/cli": "^7.16.8",
+    "babel": "^6.23.0",
+    "dotenv": "^10.0.0",
+    "webdriver": "^7.16.7",
+    "webdriverio": "^7.16.8"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.16.0",
+    "@cucumber/cucumber": "^8.0.0-rc.1",
+    "@wdio/cucumber-framework": "^7.16.6",
+    "@wdio/dot-reporter": "^7.16.6",
+    "@wdio/local-runner": "^7.16.8",
+    "@wdio/selenium-standalone-service": "^7.16.6",
+    "@wdio/sync": "^7.16.10",
+    "selenium-standalone": "^8.0.4",
+    "wdio-mochawesome-reporter": "^4.0.0"
+  }
+}
