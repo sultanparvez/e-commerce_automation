@@ -4,3 +4,4 @@ E-Commerce Automation
 * CUCUMBER,
 * Web-driver I/O,
 * Gherkin
+* Applitools
