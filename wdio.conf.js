@@ -1,4 +1,11 @@
 require("dotenv").config();
+const {
+    Eyes,
+    Target,
+    ClassicRunner,
+    Configuration,
+    BatchInfo
+  } = require("@applitools/eyes-webdriverio");
 exports.config = {
     //
     // ====================
@@ -171,8 +178,8 @@ exports.config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        //tagExpression: `@regression or ${process.env.ENVIRONMENT} `,
-        tagExpression: `${process.env.ENVIRONMENT} `,
+        //tagExpression: `@regression or @${process.env.ENVIRONMENT} `,
+        tagExpression: `@${process.env.ENVIRONMENT} `,
         //tags:[],
         // <number> timeout for step definitions
         timeout: 60000,
@@ -214,9 +221,19 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      * @param {String} cid worker id (e.g. 0-0)
      */
-    // beforeSession: function (config, capabilities, specs, cid) {
-    //     require("@babel/register");
-    // },
+    beforeSession: function (config, capabilities, specs, cid) {
+    const eyes = new Eyes(new ClassicRunner());
+    global.eyes = eyes;
+    global.Target = Target;
+    const batchInfo = new BatchInfo();
+    batchInfo.setSequenceName("Cucumber Tests");
+    const configuration = new Configuration();
+    configuration.setBatch(batchInfo);
+    configuration.setAppName("Visual Testing : E-commerce");
+    configuration.setTestName("Login: Landing page");
+    configuration.setApiKey(process.env.APPLITOOLS_KEY);
+    eyes.setConfiguration(configuration);
+    },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
      * variables like `browser`. It is the perfect place to define custom commands.

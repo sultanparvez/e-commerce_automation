@@ -6,8 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js",
     "test:regression": "./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@regression'",
-    "test:dev":"./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@dev'",
-    "test:int":"./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@int'"
+    "test:dev": "./node_modules/.bin/wdio wdio.conf.js --cucumberOpts.tagExpression='@dev'"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +21,7 @@
     "webdriverio": "^7.16.8"
   },
   "devDependencies": {
+    "@applitools/eyes-webdriverio": "^5.34.2",
     "@babel/register": "^7.16.0",
     "@cucumber/cucumber": "^8.0.0-rc.1",
     "@wdio/cucumber-framework": "^7.16.6",
