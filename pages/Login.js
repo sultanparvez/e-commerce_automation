@@ -19,12 +19,7 @@ class Login {
     return $(".alert.alert-danger > ol");
   }
 
-  /**
-   * Signs in
-   *
-   * @param {String} email - Email
-   * @param {String} password - Button
-   */
+  
   signIn(email, password) {
     this.emailInput.waitForDisplayed(5000);
     this.emailInput.setValue(email);

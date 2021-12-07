@@ -2,7 +2,7 @@ Feature: Login
 
   As a user, I want to be able to login to my account to
   view accont details
-
+  
   Scenario Outline: Attempting to login with valid credentials; <@email>
     Given the browser is at the "Login" page
     When the user tries to use "valid" credentials, "<email>" to login
@@ -13,6 +13,11 @@ Feature: Login
     Examples:
       | email               |
       | diptosden@gmail.com |
+    @int 
+    Examples:
+      | email                      |
+      | sultanparvez.dsi@gmail.com |
+
 
   @regression
   Scenario Outline: Attempting to login with invalid credentials; <email>
@@ -22,8 +27,8 @@ Feature: Login
     And an authentication error message should say "<error>"
 
     Examples:
-      | email              | error                      |
-      | 123_dev@gmail.com  | Authentication failed.     |
-      | 345_int@gmail.com  | Authentication failed.     |
-      | just really random | Invalid email address.     |
-      |                    | An email address required. |
+      | email                      | error                      |
+      | alphatesterdsi@gmail.com   | Authentication failed.     |
+      | betatesterdsi@gmail.com    | Authentication failed.     |
+      | random login test          | Invalid email address.     |
+      |                            | An email address required. |

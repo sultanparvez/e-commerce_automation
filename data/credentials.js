@@ -4,7 +4,7 @@ export default [
     password: process.env.DEV_PASSWORD
   },
   {
-    email: "diptosden@gmail.com",
+    email: "sultanparvez.dsi@gmail.com",
     password: process.env.INT_PASSWORD
   }
 ];
